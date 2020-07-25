@@ -12,8 +12,7 @@ import kotlinx.android.synthetic.main.activity_basic_main.*
  */
 
 // 1、https://github.com/MindorksOpenSource/from-java-to-kotlin/blob/master/README-ZH.md
-// 2、https://www.jianshu.com/p/f46eac4550f5
-// 3、https://www.jianshu.com/p/bb53cba6c8f4
+// 2、https://www.jianshu.com/p/bb53cba6c8f4
 
 class BasicMainActivity :AppCompatActivity (){
 
