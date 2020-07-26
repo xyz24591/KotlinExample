@@ -17,8 +17,13 @@
             </intent-filter>
         </activity>
 
-
         <activity android:name=".Basic.BasicMainActivity"/>
+        <activity android:name=".transitionAnim.ActivityAnimFirst"/>
+        <activity android:name=".transitionAnim.ActivityAnimSecond"/>
+        <activity android:name=".transitionAnim.TransitionAnimActivity"/>
+        <activity android:name=".transitionAnim.ExplodeTestActivity"/>
+        <activity android:name=".transitionAnim.ExplodeThirdActivity"/>
+
     </application>
 
 </manifest>

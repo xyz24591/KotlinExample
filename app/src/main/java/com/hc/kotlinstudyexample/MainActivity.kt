@@ -1,24 +1,49 @@
 package com.hc.kotlinstudyexample
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.transition.Explode
+import android.transition.Transition
+import android.transition.TransitionInflater
+import android.view.Window
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import com.hc.kotlinstudyexample.Basic.BasicMainActivity
+import com.hc.kotlinstudyexample.transitionAnim.ActivityAnimFirst
 import kotlinx.android.synthetic.main.activity_main.*
 
 //https://juejin.im/post/5df4aabe6fb9a0161104c8eb#heading-21
+
+@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
+
+        getWindow() .requestFeature(Window.FEATURE_CONTENT_TRANSITIONS)
+
+        val explode: Transition =
+            TransitionInflater.from(this).inflateTransition(R.transition.explode)
+        //退出时使用
+        getWindow().setExitTransition(Explode());
+//第一次进入时使用
+        getWindow().setEnterTransition(Explode());
+//再次进入时使用
+        getWindow().setReenterTransition(Explode());
+        setContentView(R.layout.activity_main)
         initView()
+
     }
 
     private fun initView() {
-        h5Demo.setOnClickListener {
+        basicDemo.setOnClickListener {
             startActivity(Intent(MainActivity@this,BasicMainActivity::class.java))
+        }
+
+        transitionAnim.setOnClickListener {
+            startActivity(Intent(MainActivity@this,ActivityAnimFirst::class.java))
         }
 
     }

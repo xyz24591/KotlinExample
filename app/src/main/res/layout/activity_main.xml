@@ -18,15 +18,29 @@
           android:layout_width="match_parent"
           android:layout_height="match_parent"
           android:gravity="center"
+          android:orientation="vertical"
           >
 
           <Button
-              android:id="@+id/h5Demo"
+              android:id="@+id/basicDemo"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:text="Kotlin H5"
+              android:text="Kotlin Basic"
               android:textAllCaps="false"
               />
+
+
+
+          <Button
+              android:layout_marginTop="20dp"
+              android:id="@+id/transitionAnim"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="过渡动画"
+              android:textAllCaps="false"
+              />
+
+
 
       </LinearLayout>
 

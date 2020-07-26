@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_margin="64dp"
+        android:layout_gravity="top"
+        android:background="#888" />
+
+    <View
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_margin="64dp"
+        android:layout_gravity="top|right"
+        android:background="#888" />
+
+    <View
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_margin="64dp"
+        android:layout_gravity="bottom"
+        android:background="#888" />
+
+    <View
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_margin="64dp"
+        android:layout_gravity="bottom|right"
+        android:background="#888" />
+
+    <TextView
+        android:id="@+id/hello"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:transitionName="test_text"
+        android:textSize="45sp"
+        android:text="Thrid"/>
+
+</FrameLayout>
