@@ -11,6 +11,7 @@ import android.view.Window
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import com.hc.kotlinstudyexample.Basic.BasicMainActivity
+import com.hc.kotlinstudyexample.H5.H5MainActivity
 import com.hc.kotlinstudyexample.transitionAnim.ActivityAnimFirst
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -46,5 +47,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(MainActivity@this,ActivityAnimFirst::class.java))
         }
 
+        btn_h5.setOnClickListener {
+            startActivity(Intent(MainActivity@this,H5MainActivity::class.java))
+        }
     }
 }

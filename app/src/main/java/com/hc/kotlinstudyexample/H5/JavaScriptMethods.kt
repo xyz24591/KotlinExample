@@ -3,6 +3,7 @@ package com.hc.kotlinstudyexample.H5
 import android.content.Context
 import android.webkit.JavascriptInterface
 import android.widget.Toast
+import org.jetbrains.anko.toast
 
 /**
  * Created by hcw  on 2020/7/17
@@ -23,7 +24,12 @@ class JavaScriptMethods {
     //4.2 之后，没有这个注解，h5 无法调用原生代码
     @JavascriptInterface
     fun showToast(json:String){
-        Toast.makeText(mContext,json,Toast.LENGTH_LONG).show()
+        //Toast.makeText(mContext,json,Toast.LENGTH_LONG).show()
+        mContext?.let {
+            it.toast(json)
+        }
     }
+
+
 
 }
