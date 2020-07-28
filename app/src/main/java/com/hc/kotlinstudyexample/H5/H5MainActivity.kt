@@ -7,6 +7,7 @@ import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import com.hc.kotlinstudyexample.R
 import kotlinx.android.synthetic.main.activity_h5_main.*
+import org.json.JSONObject
 
 /**
  * Created by hcw  on 2020/7/27
@@ -40,7 +41,7 @@ class H5MainActivity :AppCompatActivity() {
         mWebView.webChromeClient = MyWebChromeClient()
 
         //h5 与 kotlin 通信
-        mWebView.addJavascriptInterface(JavaScriptMethods(H5MainActivity@this),"jsInterface")
+        mWebView.addJavascriptInterface(JavaScriptMethods(H5MainActivity@this,mWebView),"jsInterface")
 
 
         //3、加载网页
@@ -52,10 +53,16 @@ class H5MainActivity :AppCompatActivity() {
 
 
 
-    private class  MyWebViewClient : WebViewClient(){
+    //通过 inner 来使用外部类的成员变量
+   inner private class  MyWebViewClient : WebViewClient(){
         //页面加载完成调用
         override fun onPageFinished(view: WebView?, url: String?) {
             super.onPageFinished(view, url)
+            //页面加载完成，调用 js,通过 laodUrl
+            var json = JSONObject()
+            json.put("name","Kotlin")
+            mWebView.loadUrl("javascript:showMessage(" + json.toString() + ")")
+
         }
     }
 

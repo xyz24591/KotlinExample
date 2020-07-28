@@ -68,7 +68,10 @@
 
     $("#btn3").on("click", function(){
         //页面跳转
-        location.href = "orderDetail.html";
+        //location.href = "orderDetail.html";
+         var json = {"callback":"receiveHotelData"};
+         window.jsInterface.getHotelData(JSON.stringify(json));
+
     });
 
     /**
@@ -79,6 +82,18 @@
     var callAndroidMethod = function(method, params){
         window.jsInterface.invokeMethod(method, [JSON.stringify(params)]);//json对象转成字符串，再转成字符串数组
     }
+
+
+    //Android 调用 JS
+    var showMessage = function(json){
+    alert(JSON.stringify(json));
+    };
+
+    var receiveHotelData = function(json){
+        alert(JSON.stringify(json));
+    }
+
+
 </script>
 </body>
 
