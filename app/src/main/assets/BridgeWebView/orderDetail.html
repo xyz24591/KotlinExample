@@ -97,9 +97,8 @@
 
 
         $(".phone").click("touch", function () {
-//            alert($(this).text());
+           // alert($(this).text());
             var params = {"phone": $(this).text(), "action":"showCallPhoneDialog"};//底部弹出拨号对话框
-
             callAndroidMethod(method, params);
         });
     }
