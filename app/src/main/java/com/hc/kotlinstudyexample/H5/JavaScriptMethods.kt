@@ -1,11 +1,15 @@
 package com.hc.kotlinstudyexample.H5
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.util.Log
 import android.webkit.JavascriptInterface
 import android.webkit.WebView
+import kotlinx.android.synthetic.main.hg_bottom_dialog.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.runOnUiThread
+import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.toast
 import org.json.JSONException
 import org.json.JSONObject
@@ -72,7 +76,32 @@ class JavaScriptMethods {
         }
     }
 
-    fun  showPhoneDialog(){
+    fun  showPhoneDialog( params: JSONObject){
+        val phone  = params.get("phone")
+        Log.i("HCTAG", "invokeMethod: 电话号码: " + phone)
+        mDialog.btnPhone.text = phone as CharSequence?
+
+        mDialog.btnCancel.onClick {
+            mDialog.dismiss()
+        }
+
+        mDialog.btnPhone.onClick {
+            mDialog.dismiss()
+            //调用系统拨号
+            mContext?.let {
+                var intent = Intent()
+
+                intent.setAction("android.intent.action.VIEW")
+                intent.setAction("android.intent.action.DIAL")
+                intent.addCategory("android.intent.category.DEFAULT")
+                intent.addCategory("android.intent.category.DEFAULT")
+                intent.addCategory("android.intent.category.BROWSABLE")
+                intent.setData(Uri.parse("tel:" + phone))
+                it.startActivity(intent)
+            }
+
+
+        }
         mDialog.show()
     }
 
@@ -130,11 +159,15 @@ class JavaScriptMethods {
         Log.i("HCTAG", "invokeMethod: method:" + method + ",params:" + params.get(0)?.toString())
       //  mDialog.show()
         val tempJson = JSONObject(params.get(0).toString())
+
+
+
+
         var invokeMethod =   tempJson.optString("action") //解析js回调方法
 
         when(invokeMethod){
             in "getHotelData"->getHotelData(params?.get(0)?.toString())
-            in "showCallPhoneDialog" -> showPhoneDialog()
+            in "showCallPhoneDialog" -> showPhoneDialog(tempJson)
 
         }
 
