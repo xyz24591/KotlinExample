@@ -32,6 +32,13 @@ dependencies {
     implementation "org.jetbrains.anko:anko:$anko_version"
 
 
+    //物理动画
+    // Java language implementation
+    //implementation "androidx.dynamicanimation:dynamicanimation:1.0.0"
+    // Kotlin
+    implementation "androidx.dynamicanimation:dynamicanimation-ktx:1.0.0-alpha03"
+
+
     //test,应该不是都需要的
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
@@ -60,6 +67,7 @@ dependencies {
     // dependency to appear on your APK's compile classpath or the test APK
     // classpath.
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
 
 
 }

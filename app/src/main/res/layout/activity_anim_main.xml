@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="179dp"
+        tools:layout_editor_absoluteY="338dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                >
+                <TextView
+                    android:id="@+id/text"
+                    style="?android:textAppearanceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/colorAccent"
+                    android:gravity="center"
+                    android:text="circle_reveal_title"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_50"
+                    android:padding="5dp"
+                    />
+
+                <Button
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="开始动画"
+                    android:id="@+id/btn_circle_reveal"
+                    >
+
+                </Button>
+
+
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                >
+                <TextView
+                    android:id="@+id/tv_cross_content"
+                    style="?android:textAppearanceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/colorAccent"
+                    android:gravity="center"
+                    android:text="渐隐动画"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_50"
+                    android:padding="5dp"
+                    />
+
+                <Button
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="开始动画"
+                    android:id="@+id/btn_cross_fade"
+                    >
+                </Button>
+
+
+            </RelativeLayout>
+
+            <ProgressBar
+                android:id="@+id/loading_spinner"
+                style="?android:progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+
+
+            <ImageView
+                android:layout_marginTop="50dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/test"
+                android:id="@+id/iv_spring"
+                />
+
+            <Button
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="大小回弹"
+                android:id="@+id/btn_img_size_spring"
+                >
+            </Button>
+
+
+
+            <LinearLayout
+                android:layout_marginTop="150dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_width="50dp"
+                    android:text="发布"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="20dp"
+                    android:background="@color/text_color"
+                    android:id="@+id/tv_spring_one"
+                    />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:text="分享"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="20dp"
+                    android:background="@color/text_color"
+                    android:id="@+id/tv_spring_two"
+                    />
+
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:text="取消"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="20dp"
+                    android:background="@color/text_color"
+                    android:id="@+id/tv_spring_three"
+                    />
+
+
+            </LinearLayout>
+
+
+
+            <Button
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="组合弹性动画"
+                android:id="@+id/btn_chained_spring"
+                >
+            </Button>
+
+
+
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

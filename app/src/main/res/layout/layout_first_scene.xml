@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
+
     <TextView
-        android:id="@+id/tvFirst"
-        android:textSize="18sp"
-        android:layout_marginTop="100dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal|top"
-        android:text="感谢大家阅读文章" />
-</LinearLayout>
+        android:id="@+id/textView1"
+        android:layout_width="300dp"
+        android:layout_height="120dp"
+        android:background="#FF0000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="这是第一个布局"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

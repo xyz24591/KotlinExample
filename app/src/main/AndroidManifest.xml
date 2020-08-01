@@ -31,6 +31,7 @@
         <activity android:name=".transitionAnim.ExplodeTestActivity"/>
         <activity android:name=".transitionAnim.ExplodeThirdActivity"/>
         <activity android:name=".H5.H5MainActivity"/>
+        <activity android:name=".animation.AnimationMain"/>
 
     </application>
 

@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import com.hc.kotlinstudyexample.Basic.BasicMainActivity
 import com.hc.kotlinstudyexample.H5.H5MainActivity
+import com.hc.kotlinstudyexample.animation.AnimationMain
 import com.hc.kotlinstudyexample.transitionAnim.ActivityAnimFirst
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -21,17 +22,12 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
         getWindow() .requestFeature(Window.FEATURE_CONTENT_TRANSITIONS)
-
-        val explode: Transition =
-            TransitionInflater.from(this).inflateTransition(R.transition.explode)
         //退出时使用
         getWindow().setExitTransition(Explode());
-//第一次进入时使用
+        //第一次进入时使用
         getWindow().setEnterTransition(Explode());
-//再次进入时使用
+        //再次进入时使用
         getWindow().setReenterTransition(Explode());
         setContentView(R.layout.activity_main)
         initView()
@@ -45,6 +41,11 @@ class MainActivity : AppCompatActivity() {
 
         transitionAnim.setOnClickListener {
             startActivity(Intent(MainActivity@this,ActivityAnimFirst::class.java))
+        }
+
+
+        btn_main_anim.setOnClickListener {
+            startActivity(Intent(MainActivity@this,AnimationMain::class.java))
         }
 
         btn_h5.setOnClickListener {

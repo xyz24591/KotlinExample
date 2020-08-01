@@ -116,11 +116,30 @@ class ActivityAnimFirst : AppCompatActivity(){
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 if (isFirst) {
                     //完全随机的从不同方向展示
-                    TransitionManager.go(secondScene, Explode())
+                 //  TransitionManager.go(secondScene, Explode())
+                    //使用自定义 Transition
+                   // TransitionManager.go(secondScene, CustomTransiton())
                    // TransitionManager.go(firstScene, Slide(Gravity.TOP))
 
+//                    TransitionManager.go(secondScene, TransitionSet().apply {
+//                        addTransition(CustomTransiton())
+//                        addTransition(ChangeBounds())
+//                    })
+
+                    TransitionManager.go(firstScene, TransitionSet().apply {
+                        addTransition(CustomTransiton())
+                        addTransition(ChangeBounds())
+                    })
+
+
                 }else{
-                    TransitionManager.go(firstScene, Slide(Gravity.TOP))
+                  //  TransitionManager.go(firstScene, Slide(Gravity.TOP))
+                  //  TransitionManager.go(firstScene, CustomTransiton())
+
+                    TransitionManager.go(secondScene, TransitionSet().apply {
+                        addTransition(CustomTransiton())
+                        addTransition(ChangeBounds())
+                    })
                 }
                 isFirst=!isFirst
             }
