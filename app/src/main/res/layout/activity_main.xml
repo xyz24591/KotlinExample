@@ -61,6 +61,15 @@
               android:textAllCaps="false"
               />
 
+          <Button
+              android:layout_marginTop="20dp"
+              android:id="@+id/btn_kotlin_test"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="官方测试用 Demo"
+              android:textAllCaps="false"
+              />
+
 
 
       </LinearLayout>
