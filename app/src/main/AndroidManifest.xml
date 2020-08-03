@@ -35,6 +35,7 @@
         <activity android:name=".animation.AnimationMain"/>
 
         <activity android:name=".todo.tasks.TasksActivity"/>
+        <activity android:name=".https.ActivityHttpsMain"/>
     </application>
 
 </manifest>
