@@ -89,11 +89,23 @@ dependencies {
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
+    //可读性更好的 ASSERT
+    testImplementation "org.hamcrest:hamcrest-all:$hamcrestVersion"
+    //anroidx 和 提供 Android 环境比如 CONTEXT 的依赖
+    testImplementation "androidx.test:core-ktx:$androidXTestCoreVersion"
+    testImplementation "org.robolectric:robolectric:$robolectricVersion"
+    // Core library
+    androidTestImplementation 'androidx.test:core:1.0.0'
+    // AndroidJUnitRunner and JUnit Rules
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestImplementation 'androidx.test:rules:1.1.0'
+    //AndroidJUnit4 需要
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
 
 
     //test,应该不是都需要的
 //    testImplementation 'junit:junit:4.12'
-//    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+//    andrboidTestImplementation 'androidx.test.ext:junit:1.1.1'
 //    // Core library
 //    androidTestImplementation 'androidx.test:core:1.0.0'
 //
