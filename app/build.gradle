@@ -93,6 +93,7 @@ dependencies {
     testImplementation "org.hamcrest:hamcrest-all:$hamcrestVersion"
     //anroidx 和 提供 Android 环境比如 CONTEXT 的依赖
     testImplementation "androidx.test:core-ktx:$androidXTestCoreVersion"
+    testImplementation "androidx.arch.core:core-testing:$archTestingVersion"
     testImplementation "org.robolectric:robolectric:$robolectricVersion"
     // Core library
     androidTestImplementation 'androidx.test:core:1.0.0'
@@ -101,6 +102,14 @@ dependencies {
     androidTestImplementation 'androidx.test:rules:1.1.0'
     //AndroidJUnit4 需要
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    // AndroidX Test - JVM testing
+    testImplementation "androidx.test:core-ktx:$androidXTestCoreVersion"
+    testImplementation "androidx.test.ext:junit:$androidXTestExtKotlinRunnerVersion"
+
+    // AndroidX Test - Instrumented testing
+    androidTestImplementation "androidx.test.ext:junit:$androidXTestExtKotlinRunnerVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+
 
 
     //test,应该不是都需要的
