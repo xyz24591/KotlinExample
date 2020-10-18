@@ -4,14 +4,12 @@ import androidx.test.core.app.ApplicationProvider
 import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
-import androidx.test.runner.AndroidJUnit4
 /**
  * Created by hcw  on 2020/8/23
  * 类描述：
  * all rights reserved
  */
 
-@RunWith(AndroidJUnit4::class)
 class TasksViewModelTest {
 
     @Test
