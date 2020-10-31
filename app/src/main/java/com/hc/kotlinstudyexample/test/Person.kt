@@ -6,7 +6,7 @@ package com.hc.kotlinstudyexample.test
  * all rights reserved
  */
 
-data class Person(
+ class Person(
     var name:String?=null,
     var id:Int=1,
     var status:String?=null

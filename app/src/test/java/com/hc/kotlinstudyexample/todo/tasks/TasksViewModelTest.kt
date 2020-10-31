@@ -5,7 +5,6 @@ import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
 
-import androidx.test.runner.AndroidJUnit4
 import org.junit.Before
 import org.junit.Rule
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
