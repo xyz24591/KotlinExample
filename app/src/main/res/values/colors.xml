@@ -17,4 +17,14 @@
     <color name="btn_light">#eed2d2d2</color>
     <drawable name="line">#a2a2a2</drawable>
     <color name="text_color">#1482fd</color>
+
+
+
+    <color name="main_color">#ef416d</color>
+    <color name="divider">#d9d9d9</color>
+    <color name="text_main">#ababab</color>
+    <color name="text_default">#474747</color>
+    <color name="text_secondary">#808080</color>
+    <color name="text_end">#b3b3b3</color>
+
 </resources>

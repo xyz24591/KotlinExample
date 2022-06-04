@@ -37,6 +37,12 @@
 
         <activity android:name=".todo.tasks.TasksActivity"/>
         <activity android:name=".https.ActivityHttpsMain"/>
+
+
+        <activity android:name=".test.robolectric.LoginActivity"/>
+        <activity android:name=".test.robolectric.RobolectricMainActivity"/>
+        <service android:name=".test.robolectric.service.MyService"/>
+        <receiver android:name=".test.robolectric.broadcast.MyReceiver"/>
     </application>
 
 </manifest>
