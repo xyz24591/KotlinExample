@@ -11,12 +11,12 @@ plugins {
 
 
 android {
-    compileSdk 32
-
+    compileSdk 31
+  ///  buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "com.hc.kotlinstudyexample"
         minSdk 23
-        targetSdk 32
+        targetSdk 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -179,12 +179,12 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
 
     // Optional -- Mockito framework
-    testCompile "org.mockito:mockito-core:2.8.9"
+    androidTestImplementation "org.mockito:mockito-core:2.8.9"
 
-    testCompile "org.powermock:powermock-module-junit4:1.7.3"
-    testCompile "org.powermock:powermock-module-junit4-rule:1.7.3"
-    testCompile "org.powermock:powermock-api-mockito2:1.7.3" //注意这里是mockito2
-    testCompile "org.powermock:powermock-classloading-xstream:1.7.3"
+    androidTestImplementation "org.powermock:powermock-module-junit4:1.7.3"
+    androidTestImplementation "org.powermock:powermock-module-junit4-rule:1.7.3"
+    androidTestImplementation "org.powermock:powermock-api-mockito2:1.7.3" //注意这里是mockito2
+    androidTestImplementation "org.powermock:powermock-classloading-xstream:1.7.3"
 
 
 

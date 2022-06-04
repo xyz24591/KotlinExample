@@ -17,8 +17,10 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
-            android:exported="true">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,23 +28,52 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Basic.BasicMainActivity"/>
-        <activity android:name=".transitionAnim.ActivityAnimFirst"/>
-        <activity android:name=".transitionAnim.ActivityAnimSecond"/>
-        <activity android:name=".transitionAnim.TransitionAnimActivity"/>
-        <activity android:name=".transitionAnim.ExplodeTestActivity"/>
-        <activity android:name=".transitionAnim.ExplodeThirdActivity"/>
-        <activity android:name=".H5.H5MainActivity"/>
-        <activity android:name=".animation.AnimationMain"/>
+        <activity android:name=".Basic.BasicMainActivity"
+            android:exported="false"
+            />
+        <activity android:name=".transitionAnim.ActivityAnimFirst"
+            android:exported="false"
+            />
+        <activity android:name=".transitionAnim.ActivityAnimSecond"
+            android:exported="false"
+            />
+        <activity android:name=".transitionAnim.TransitionAnimActivity"
+            android:exported="false"
+            />
+        <activity android:name=".transitionAnim.ExplodeTestActivity"
+            android:exported="false"
+            />
+        <activity android:name=".transitionAnim.ExplodeThirdActivity"
+            android:exported="false"
+            />
+        <activity android:name=".H5.H5MainActivity"
+            android:exported="false"
+            />
+        <activity android:name=".animation.AnimationMain"
+            android:exported="false"
+            />
 
-        <activity android:name=".todo.tasks.TasksActivity"/>
-        <activity android:name=".https.ActivityHttpsMain"/>
+        <activity android:name=".todo.tasks.TasksActivity"
+            android:exported="false"
+            />
+        <activity android:name=".https.ActivityHttpsMain"
+            android:exported="false"
+            />
 
 
-        <activity android:name=".test.robolectric.LoginActivity"/>
-        <activity android:name=".test.robolectric.RobolectricMainActivity"/>
-        <service android:name=".test.robolectric.service.MyService"/>
-        <receiver android:name=".test.robolectric.broadcast.MyReceiver"/>
+        <activity android:name=".test.robolectric.LoginActivity"
+            android:exported="false"
+            />
+        <activity android:name=".test.robolectric.RobolectricMainActivity"
+            android:exported="false"
+            />
+        <service android:name=".test.robolectric.service.MyService"
+            android:exported="false"
+            />
+        <receiver android:name=".test.robolectric.broadcast.MyReceiver"
+            android:exported="false"
+
+            />
     </application>
 
 </manifest>
