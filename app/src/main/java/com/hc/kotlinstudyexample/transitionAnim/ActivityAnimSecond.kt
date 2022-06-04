@@ -11,7 +11,7 @@ import android.view.Window
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.hc.kotlinstudyexample.R
-import kotlinx.android.synthetic.main.activity_anim_second.*
+import com.hc.kotlinstudyexample.databinding.ActivityAnimSecondBinding
 
 /**
  * Created by hcw  on 2020/7/26
@@ -19,6 +19,8 @@ import kotlinx.android.synthetic.main.activity_anim_second.*
  * all rights reserved
  */
 class ActivityAnimSecond : AppCompatActivity()  {
+
+    private lateinit var binding:ActivityAnimSecondBinding
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +37,8 @@ class ActivityAnimSecond : AppCompatActivity()  {
         getWindow().setEnterTransition(Explode());
 //再次进入时使用
         getWindow().setReenterTransition(Explode());
-        
+
+        binding = ActivityAnimSecondBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_anim_second)
 
         initSystemScene()
@@ -47,13 +50,13 @@ class ActivityAnimSecond : AppCompatActivity()  {
      */
     @RequiresApi(Build.VERSION_CODES.KITKAT)
     private fun initSystemScene() {
-        vSquare.setOnClickListener {
-            TransitionManager.beginDelayedTransition(sceneRoot)
-            vSquare.layoutParams.apply {
+        binding.vSquare.setOnClickListener {
+            TransitionManager.beginDelayedTransition(  binding.sceneRoot)
+            binding.vSquare.layoutParams.apply {
                 width = 200.px
                 height = 200.px
             }.also {
-                vSquare.layoutParams = it
+                binding. vSquare.layoutParams = it
             }
         }
     }

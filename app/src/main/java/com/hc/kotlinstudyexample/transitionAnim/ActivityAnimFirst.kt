@@ -10,8 +10,9 @@ import android.view.View
 import android.view.Window
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil.setContentView
 import com.hc.kotlinstudyexample.R
-import kotlinx.android.synthetic.main.activity_anim_first.*
+import com.hc.kotlinstudyexample.databinding.ActivityAnimFirstBinding
 
 
 /**
@@ -23,7 +24,7 @@ import kotlinx.android.synthetic.main.activity_anim_first.*
 //todo,explode
 class ActivityAnimFirst : AppCompatActivity(){
 
-
+    private lateinit var binding:ActivityAnimFirstBinding
     var isFirst = true
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -81,6 +82,7 @@ class ActivityAnimFirst : AppCompatActivity(){
 //            }
 //        }
 
+        binding  = ActivityAnimFirstBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_anim_first)
         init()
         initLayoutAnim()
@@ -91,7 +93,7 @@ class ActivityAnimFirst : AppCompatActivity(){
 
     private fun initExplode() {
 
-        tvExplode.setOnClickListener {
+        binding.tvExplode.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {//判断Android版本
                 startActivity(
                     Intent(this, ExplodeTestActivity::class.java),
@@ -110,9 +112,9 @@ class ActivityAnimFirst : AppCompatActivity(){
     @RequiresApi(Build.VERSION_CODES.KITKAT)
     private fun initLayoutAnim() {
         //需要有相同的根布局
-        val firstScene = Scene.getSceneForLayout(flContent, R.layout.layout_first_scene, this)
-        val secondScene = Scene.getSceneForLayout(flContent, R.layout.layout_sencod_scene, this)
-        tvLayoutAnim.setOnClickListener {
+        val firstScene = Scene.getSceneForLayout(binding.flContent, R.layout.layout_first_scene, this)
+        val secondScene = Scene.getSceneForLayout(binding.flContent, R.layout.layout_sencod_scene, this)
+        binding.tvLayoutAnim.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 if (isFirst) {
                     //完全随机的从不同方向展示
@@ -163,10 +165,10 @@ class ActivityAnimFirst : AppCompatActivity(){
     private fun init() {
         //1、共享元素动画需要有相同的 transitionName ，这个属性也可以通过代码设置
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            ivImage.transitionName="activityTransform"
+            binding.ivImage.transitionName="activityTransform"
         }
 
-        ivImage.setOnClickListener {
+        binding.ivImage.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {//判断Android版本
 
                 //2、共享元素通过 ActivityOptions 来设置 sharedElementName，Intent 中指定使用 这个 option
@@ -175,8 +177,8 @@ class ActivityAnimFirst : AppCompatActivity(){
 
 
                 //4、如果有多个元素需要做过渡动画，使用 Pair
-                val imagePair=android.util.Pair<View,String>(ivImage,"activityTransform")
-                val textPair=android.util.Pair<View,String>(tvText,"textTransform")
+                val imagePair=android.util.Pair<View,String>(  binding.ivImage,"activityTransform")
+                val textPair=android.util.Pair<View,String>(  binding.tvText,"textTransform")
                 val bundle = ActivityOptions.makeSceneTransitionAnimation(this, imagePair,textPair).toBundle()
 
              //   startActivity(Intent(this, ActivityAnimSecond::class.java), bundle)

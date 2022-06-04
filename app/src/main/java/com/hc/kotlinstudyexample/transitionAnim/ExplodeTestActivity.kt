@@ -12,7 +12,7 @@ import android.view.Window
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.hc.kotlinstudyexample.R
-import kotlinx.android.synthetic.main.activity_explode_test.*
+import com.hc.kotlinstudyexample.databinding.ActivityExplodeTestBinding
 
 
 /**
@@ -21,6 +21,8 @@ import kotlinx.android.synthetic.main.activity_explode_test.*
  * all rights reserved
  */
 class ExplodeTestActivity  : AppCompatActivity(){
+
+    private lateinit var binding:ActivityExplodeTestBinding
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,9 +32,10 @@ class ExplodeTestActivity  : AppCompatActivity(){
         //从第三个退出的时候
         getWindow().setExitTransition( Slide(Gravity.LEFT))
 
+        binding = ActivityExplodeTestBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_explode_test)
 
-        third_hello.setOnClickListener {
+        binding.thirdHello.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {//判断Android版本
                 startActivity(
                     Intent(this, ExplodeThirdActivity::class.java),

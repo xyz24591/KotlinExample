@@ -4,7 +4,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.hc.kotlinstudyexample.R
-import kotlinx.android.synthetic.main.activity_https_main.*
+import com.hc.kotlinstudyexample.databinding.ActivityH5MainBinding
+import com.hc.kotlinstudyexample.databinding.ActivityHttpsMainBinding
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import java.io.ByteArrayOutputStream
@@ -21,13 +22,14 @@ import javax.net.ssl.*
  */
 class ActivityHttpsMain : AppCompatActivity() {
 
+    private lateinit var binding:ActivityHttpsMainBinding
     val mBtnPay by lazy {
-        btn_https
+        binding.btnHttps
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_https_main)
+        binding = ActivityHttpsMainBinding.inflate(layoutInflater)
 
         mBtnPay.onClick {
             //自线程请求接口，使用拉姆达\

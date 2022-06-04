@@ -13,15 +13,17 @@ import androidx.annotation.RequiresApi
 import com.hc.kotlinstudyexample.Basic.BasicMainActivity
 import com.hc.kotlinstudyexample.H5.H5MainActivity
 import com.hc.kotlinstudyexample.animation.AnimationMain
+import com.hc.kotlinstudyexample.databinding.ActivityMainBinding
 import com.hc.kotlinstudyexample.https.ActivityHttpsMain
 import com.hc.kotlinstudyexample.todo.tasks.TasksActivity
 import com.hc.kotlinstudyexample.transitionAnim.ActivityAnimFirst
-import kotlinx.android.synthetic.main.activity_main.*
 
 //https://juejin.im/post/5df4aabe6fb9a0161104c8eb#heading-21
 
 @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding:ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         getWindow() .requestFeature(Window.FEATURE_CONTENT_TRANSITIONS)
@@ -31,34 +33,35 @@ class MainActivity : AppCompatActivity() {
         getWindow().setEnterTransition(Explode());
         //再次进入时使用
         getWindow().setReenterTransition(Explode());
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         initView()
 
     }
 
     private fun initView() {
-        basicDemo.setOnClickListener {
+        binding.basicDemo.setOnClickListener {
             startActivity(Intent(MainActivity@this,BasicMainActivity::class.java))
         }
 
-        transitionAnim.setOnClickListener {
+        binding.transitionAnim.setOnClickListener {
             startActivity(Intent(MainActivity@this,ActivityAnimFirst::class.java))
         }
 
 
-        btn_main_anim.setOnClickListener {
+        binding.btnMainAnim.setOnClickListener {
             startActivity(Intent(MainActivity@this,AnimationMain::class.java))
         }
 
-        btn_h5.setOnClickListener {
+        binding.btnH5.setOnClickListener {
             startActivity(Intent(MainActivity@this,H5MainActivity::class.java))
         }
 
-        btn_kotlin_test.setOnClickListener {
+        binding.btnKotlinTest.setOnClickListener {
             startActivity(Intent(MainActivity@this,TasksActivity::class.java))
         }
 
-        btn_kotlin_https.setOnClickListener {
+        binding.btnKotlinHttps.setOnClickListener {
             startActivity(Intent(MainActivity@this,ActivityHttpsMain::class.java))
         }
 

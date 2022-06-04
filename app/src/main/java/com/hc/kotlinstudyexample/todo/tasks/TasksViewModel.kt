@@ -28,7 +28,7 @@ import com.hc.kotlinstudyexample.todo.data.Result
 /**
  * ViewModel for the task list screen.
  */
-class TasksViewModel(application: Application) : AndroidViewModel(application) {
+public  class TasksViewModel(application: Application) : AndroidViewModel(application) {
 
     // Note, for testing and architecture purposes, it's bad practice to construct the repository
     // here. We'll show you how to fix this during the codelab

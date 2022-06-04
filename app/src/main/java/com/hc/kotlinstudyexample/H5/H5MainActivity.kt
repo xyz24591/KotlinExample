@@ -6,7 +6,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import com.hc.kotlinstudyexample.R
-import kotlinx.android.synthetic.main.activity_h5_main.*
+import com.hc.kotlinstudyexample.databinding.ActivityH5MainBinding
 import org.json.JSONObject
 
 /**
@@ -19,13 +19,14 @@ class H5MainActivity :AppCompatActivity() {
 
     //懒加载
     private val mWebView : WebView  by lazy {
-        web_view
+        binding.webView
     }
 
+    private lateinit var binding:ActivityH5MainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_h5_main)
-
+        binding = ActivityH5MainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         setWebView()
 
     }

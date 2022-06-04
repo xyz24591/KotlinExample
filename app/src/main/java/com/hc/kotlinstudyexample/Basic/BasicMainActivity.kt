@@ -1,9 +1,10 @@
 package com.hc.kotlinstudyexample.Basic
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.hc.kotlinstudyexample.R
-import kotlinx.android.synthetic.main.activity_basic_main.*
+import com.hc.kotlinstudyexample.databinding.ActivityBasicMainBinding
 
 /**
  * Created by hcw  on 2020/7/21
@@ -16,13 +17,12 @@ import kotlinx.android.synthetic.main.activity_basic_main.*
 
 class BasicMainActivity :AppCompatActivity (){
 
+    private lateinit var binding:ActivityBasicMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_basic_main)
-
+        binding = ActivityBasicMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         basicGrammar()
-
-
     }
 
     /**
@@ -37,11 +37,11 @@ class BasicMainActivity :AppCompatActivity (){
         val name2 = "Value"
 
         //null 值处理
-        textView?.let {
-            val length = textView.length()
+        binding.textView?.let {
+            val length = binding.textView.length()
         }
         //或者
-        val length = textView?.length()
+        val length = binding.textView?.length()
 
         //字符串拼接(字符串模板)
         val firstName = "First"
@@ -56,11 +56,11 @@ class BasicMainActivity :AppCompatActivity (){
             |Third Line
         """.trimMargin()
 
-        textView.setText(textStr)
+        binding.textView.setText(textStr)
 
 
         //三元表达式
-        val text  = if(textView.length() > 5)
+        val text  = if(binding.textView.length() > 5)
             "textView 长度 > 5"
             else "textView 长度小于 5"
 

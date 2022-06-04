@@ -4,10 +4,14 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.util.Log
+import android.view.View
 import android.webkit.JavascriptInterface
 import android.webkit.WebView
-import kotlinx.android.synthetic.main.hg_bottom_dialog.*
+import android.widget.Button
+import android.widget.TextView
+import com.hc.kotlinstudyexample.R
 import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.find
 import org.jetbrains.anko.runOnUiThread
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.toast
@@ -79,13 +83,13 @@ class JavaScriptMethods {
     fun  showPhoneDialog( params: JSONObject){
         val phone  = params.get("phone")
         Log.i("HCTAG", "invokeMethod: 电话号码: " + phone)
-        mDialog.btnPhone.text = phone as CharSequence?
+        mDialog.find<Button>(R.id.btnPhone).text = phone as CharSequence?
 
-        mDialog.btnCancel.onClick {
+        mDialog.find<Button>(R.id.btnPhone).onClick {
             mDialog.dismiss()
         }
 
-        mDialog.btnPhone.onClick {
+        mDialog.find<Button>(R.id.btnPhone).onClick {
             mDialog.dismiss()
             //调用系统拨号
             mContext?.let {

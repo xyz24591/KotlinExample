@@ -14,7 +14,7 @@ import androidx.dynamicanimation.animation.FloatPropertyCompat
 import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
 import com.hc.kotlinstudyexample.R
-import kotlinx.android.synthetic.main.activity_anim_main.*
+import com.hc.kotlinstudyexample.databinding.ActivityAnimMainBinding
 
 /**
  * Created by hcw  on 2020/8/1
@@ -33,11 +33,13 @@ class AnimationMain :AppCompatActivity() {
     var xDiffLeft: Float? = null
     var yDiffTop: Float? = null
 
+    private lateinit var binding:ActivityAnimMainBinding
 
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_anim_main)
+        binding = ActivityAnimMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         initView()
         initSpringAnim()
     }
@@ -49,21 +51,21 @@ class AnimationMain :AppCompatActivity() {
             setStiffness(SpringForce.STIFFNESS_HIGH)                    //设置弹性
         }
 
-        xSpringAnimation = SpringAnimation(iv_spring, DynamicAnimation.TRANSLATION_X).setSpring(springForce)
-        ySpringAnimation = SpringAnimation(iv_spring, DynamicAnimation.TRANSLATION_Y).setSpring(springForce)
+        xSpringAnimation = SpringAnimation(binding.ivSpring, DynamicAnimation.TRANSLATION_X).setSpring(springForce)
+        ySpringAnimation = SpringAnimation(binding.ivSpring, DynamicAnimation.TRANSLATION_Y).setSpring(springForce)
 
 
         //拖动弹簧属性
-        iv_spring.setOnTouchListener { v, event ->
+        binding.ivSpring.setOnTouchListener { v, event ->
             val actionCode = event.action
             if (actionCode == MotionEvent.ACTION_DOWN) {
-                xDiffLeft = event.rawX - iv_spring.x
-                yDiffTop = event.rawY - iv_spring.y
+                xDiffLeft = event.rawX - binding.ivSpring.x
+                yDiffTop = event.rawY - binding.ivSpring.y
                 xSpringAnimation.cancel()
                 ySpringAnimation.cancel()
             } else if (actionCode == MotionEvent.ACTION_MOVE) {
-                iv_spring.x = event.rawX - xDiffLeft!!
-                iv_spring.y = event.rawY - yDiffTop!!
+                binding.ivSpring.x = event.rawX - xDiffLeft!!
+                binding.ivSpring.y = event.rawY - yDiffTop!!
             } else if (actionCode == MotionEvent.ACTION_UP) {
                 xSpringAnimation.start()
                 ySpringAnimation.start()
@@ -86,13 +88,13 @@ class AnimationMain :AppCompatActivity() {
             }
         }
         //设置大小改变的弹簧效果
-        btn_img_size_spring.setOnClickListener {
+        binding.btnImgSizeSpring .setOnClickListener {
             if (!changed) {
-                SpringAnimation(iv_spring, propertyCompat).setSpring(sForce.setFinalPosition(2f))
+                SpringAnimation(binding.ivSpring, propertyCompat).setSpring(sForce.setFinalPosition(2f))
                     .setMinimumVisibleChange(0.00390625f)
                     .start()
             } else {
-                SpringAnimation(iv_spring, propertyCompat).setSpring(sForce.setFinalPosition(1f))
+                SpringAnimation(binding.ivSpring, propertyCompat).setSpring(sForce.setFinalPosition(1f))
                     .setMinimumVisibleChange(0.00390625f)
                     .start()
             }
@@ -105,15 +107,15 @@ class AnimationMain :AppCompatActivity() {
             dampingRatio = SpringForce.DAMPING_RATIO_HIGH_BOUNCY
             stiffness = SpringForce.STIFFNESS_LOW
         }
-        val tvTextSpringAnimation = SpringAnimation(tv_spring_one,
+        val tvTextSpringAnimation = SpringAnimation(binding.tvSpringOne,
             DynamicAnimation.TRANSLATION_Y)
-        val tvVideoSpringAnimation = SpringAnimation(tv_spring_two,
+        val tvVideoSpringAnimation = SpringAnimation(binding.tvSpringTwo,
             DynamicAnimation.TRANSLATION_Y).apply {
             addUpdateListener { animation, value, velocity ->
                 tvTextSpringAnimation.animateToFinalPosition(value)
             }
         }
-        val tvPicSpringAnimation = SpringAnimation(tv_spring_three,
+        val tvPicSpringAnimation = SpringAnimation(binding.tvSpringThree,
             DynamicAnimation.TRANSLATION_Y).apply {
             spring = springForce2
             addUpdateListener { dynamicAnimation, value, velocity ->
@@ -121,7 +123,7 @@ class AnimationMain :AppCompatActivity() {
             }
         }
         var group_changed = false
-        btn_chained_spring.setOnClickListener {
+        binding.btnChainedSpring.setOnClickListener {
             if (!group_changed) {
                 tvPicSpringAnimation.start()
             } else {
@@ -135,14 +137,14 @@ class AnimationMain :AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
     private fun initView() {
-        btn_circle_reveal.setOnClickListener {
+        binding.btnCircleReveal.setOnClickListener {
             if (isTextShow) hideView() else showView()
             isTextShow = !isTextShow
         }
 
 
-        btn_cross_fade.setOnClickListener {
-            tv_cross_content.apply {
+        binding.tvCrossContent.setOnClickListener {
+            binding.tvCrossContent.apply {
                 visibility = View.VISIBLE
                 alpha = 0f
 
@@ -150,15 +152,15 @@ class AnimationMain :AppCompatActivity() {
                 animate().alpha(1.0f)
                     .setDuration(mShortAnimationDuration.toLong())
                     .withEndAction {
-                        tv_cross_content.visibility = View.VISIBLE
+                        binding.tvCrossContent.visibility = View.VISIBLE
                     }.start()
             }
 
-            loading_spinner.animate()
+            binding.loadingSpinner.animate()
                 .alpha(0.0f)
                 .setDuration(mShortAnimationDuration.toLong())
                 .withEndAction {
-                    loading_spinner.visibility = View.GONE
+                    binding.loadingSpinner.visibility = View.GONE
                 }.start()
 
         }
@@ -169,8 +171,8 @@ class AnimationMain :AppCompatActivity() {
 
     private fun hideView() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            val cx = text.width / 2
-            val cy = text.height / 2
+            val cx = binding.text.width / 2
+            val cy = binding.text.height / 2
             //val cy = 0
 
             val initRadius = Math.hypot(cx.toDouble(), cy.toDouble()).toFloat()
@@ -180,31 +182,31 @@ class AnimationMain :AppCompatActivity() {
             //centerX,centerY 圆形坐标
             //startRadius,endRadius 开始和结束时的圆半径
             //返回值是 animtor 对象
-            val anim = ViewAnimationUtils.createCircularReveal(text, cx, cy, initRadius, 20f)
+            val anim = ViewAnimationUtils.createCircularReveal(binding.text, cx, cy, initRadius, 20f)
             anim.duration = 2000
             anim.addListener(object : AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: Animator?) {
                     super.onAnimationEnd(animation)
-                    text.visibility = View.INVISIBLE
+                    binding.text.visibility = View.INVISIBLE
                 }
             })
             anim.start()
         } else {
-            text.visibility = View.INVISIBLE
+            binding.text.visibility = View.INVISIBLE
         }
     }
 
     private fun showView() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            val cx = text.width / 2
-            val cy = text.height / 2
+            val cx = binding.text.width / 2
+            val cy = binding.text.height / 2
 
             val finalRadius = Math.hypot(cx.toDouble(), cy.toDouble()).toFloat()
-            val anim = ViewAnimationUtils.createCircularReveal(text, cx, cy, 0f, finalRadius)
-            text.visibility = View.VISIBLE
+            val anim = ViewAnimationUtils.createCircularReveal(binding.text, cx, cy, 0f, finalRadius)
+            binding.text.visibility = View.VISIBLE
             anim.start()
         } else {
-            text.visibility = View.VISIBLE
+            binding.text.visibility = View.VISIBLE
         }
     }
 
