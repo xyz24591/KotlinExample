@@ -20,21 +20,47 @@ https://github.com/rengwuxian/HenCoderPlus7
 1、google io app   
 https://github.com/google/iosched
 
+
 2、
 https://github.com/ROBERT1830/SocialNetworkForProgramers
 
+
 3、kotlin example    
 https://github.com/Kotlin/kotlin-examples
+
 
 
 4、from java to kotlin   
 https://github.com/MindorksOpenSource/from-java-to-kotlin/blob/master/README-ZH.md
 
 
+
 5、mvvm kotlin architecture   
-https://github.com/ahmedeltaher/MVVM-Kotlin-Android-Architecture
+https://github.com/ahmedeltaher/MVVM-Kotlin-Android-Architecture   
 
 6、设计模式  
-https://github.com/dbacinski/Design-Patterns-In-Kotlin
+https://github.com/dbacinski/Design-Patterns-In-Kotlin  
+
+
+
+### 学习计划
+
+
+1、
+https://mp.weixin.qq.com/s/1zlN0vSojJ_oe-2Ywb2A8Q
+
+
+2、
+https://juejin.cn/post/6986265488275800072
+
+
+
+3、
+https://juejin.cn/post/6844903937749975054
+
+4、
+https://juejin.cn/post/6950616789390721037
+
+
 
 

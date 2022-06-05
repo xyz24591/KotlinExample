@@ -15,6 +15,7 @@ import com.hc.kotlinstudyexample.H5.H5MainActivity
 import com.hc.kotlinstudyexample.animation.AnimationMain
 import com.hc.kotlinstudyexample.databinding.ActivityMainBinding
 import com.hc.kotlinstudyexample.https.ActivityHttpsMain
+import com.hc.kotlinstudyexample.kotlinStudy.KotlinStudyMain
 import com.hc.kotlinstudyexample.todo.tasks.TasksActivity
 import com.hc.kotlinstudyexample.transitionAnim.ActivityAnimFirst
 
@@ -63,6 +64,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnKotlinHttps.setOnClickListener {
             startActivity(Intent(MainActivity@this,ActivityHttpsMain::class.java))
+        }
+
+        binding.btnKtStudy.setOnClickListener {
+            startActivity(Intent(MainActivity@this,KotlinStudyMain::class.java))
         }
 
     }
