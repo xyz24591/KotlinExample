@@ -34,8 +34,10 @@ class KotlinStudyMain:AppCompatActivity() {
         binding  = ActivityKotlinStudyMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.lifecycleOwner = this
         viewModel = ViewModelProvider(this).get(MyViewModel::class.java)
-       // viewModel = ViewModelProvider(this,MyViewModelFactory(12)).get(MyViewModel::class.java)
+        binding.myViewModel = viewModel
+        // viewModel = ViewModelProvider(this,MyViewModelFactory(12)).get(MyViewModel::class.java)
 
         initView()
 
@@ -44,6 +46,10 @@ class KotlinStudyMain:AppCompatActivity() {
              println("whcTag:$it")
          }
         }
+
+
+
+
     }
 
     private fun initView() {

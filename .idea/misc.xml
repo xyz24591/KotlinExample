@@ -13,13 +13,19 @@
       <map>
         <entry key="app/src/main/res/layout/activity_h5_main.xml" value="0.19293478260869565" />
         <entry key="app/src/main/res/layout/activity_https_main.xml" value="0.19293478260869565" />
-        <entry key="app/src/main/res/layout/activity_kotlin_study_main.xml" value="0.17753623188405798" />
+        <entry key="app/src/main/res/layout/activity_kotlin_study_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19293478260869565" />
         <entry key="app/src/main/res/layout/hg_bottom_dialog.xml" value="0.1" />
         <entry key="app/src/main/res/layout/taskdetail_frag.xml" value="0.19293478260869565" />
         <entry key="app/src/main/res/layout/tasks_frag.xml" value="0.19293478260869565" />
       </map>
     </option>
+  </component>
+  <component name="FindBugsConfigurable">
+    <option name="make" value="true" />
+    <option name="effort" value="default" />
+    <option name="priority" value="Medium" />
+    <option name="excludeFilter" value="" />
   </component>
   <component name="MarkdownNavigator.ProfileManager" plain-text-search-scope="Project Files" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
